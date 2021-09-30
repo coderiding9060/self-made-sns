@@ -11,12 +11,18 @@ div[class*="Form"] {
     padding: 5%;
 }
 
-
-.img-profile,.nav-item dropdown {
+.img-profile {
     height: 2rem;
     width: 2rem;
     vertical-align: center;
 }
+
+
+/*.img-profile,.nav-item dropdown {
+    height: 1.2rem;
+    width: 1.2rem;
+    vertical-align: center;
+}*/
 
 .nav-item>a>span{
     font-size: 16px;
@@ -24,4 +30,12 @@ div[class*="Form"] {
 
 .form-group>.flexform{
     display: flex;
+}
+
+li>a{
+    display: flex;
+}
+
+#topNavBar{
+    height: 70px;
 }

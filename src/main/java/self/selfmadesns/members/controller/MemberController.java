@@ -16,5 +16,10 @@ public class MemberController {
         return "members/memberJoinForm";
     }
 
+    @GetMapping(value = "/logIn.me")
+    public String logIn(){
+        return "members/memberLogInForm";
+    }
+
 
 }
