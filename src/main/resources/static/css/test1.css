@@ -1,0 +1,27 @@
+/*div[class^="?*"], div[class*="Form"] {*/
+div[class*="Form"] {
+    padding: 5% 20%;
+}
+
+#form1{
+    padding: 0 20%;
+}
+
+.container-fluid{
+    padding: 5%;
+}
+
+
+.img-profile,.nav-item dropdown {
+    height: 2rem;
+    width: 2rem;
+    vertical-align: center;
+}
+
+.nav-item>a>span{
+    font-size: 16px;
+}
+
+.form-group>.flexform{
+    display: flex;
+}
