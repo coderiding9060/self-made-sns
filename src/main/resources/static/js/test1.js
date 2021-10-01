@@ -103,6 +103,37 @@ function ajaxGetDelete(url,type,redirectUrl,workTitle){
 
 }
 
+// GET/DELETE 메서드의 ajax 작업
+function ajaxGetDelete1(url,type,redirectUrl,workTitle){
+    $.ajax({
+        url: ''+ url,
+        type: ''+ type,
+        dataType:'json',
+        contentType:'application/json;charset=utf-8',
+        error:function(xhr,status,msg){
+            alert("에러 상태 : " + status + "에러 내용 : " + msg);
+        },
+        success:function(response){
+            if(response.result==true||response.nullCheckResult==true){
+                alert(workTitle + "성공");
+                if(null!=response.member){
+                    $('input[name="id"]').val(response.member.id);
+                    $('input[name="name"]').val(response.member.name);
+                    $('input[name="email"]').val(response.member.email);
+                    $('input:radio[name="gender"][value="'+response.member.gender+'"]').prop('checked', true);
+                }
+
+                /*if(redirectUrl!=null||redirectUrl!=""){
+                    $(location).attr('href', redirectUrl);
+                }*/
+            } else {
+                alert(workTitle + "실패");
+            }
+        }
+    });
+
+}
+
 // 회원 전체 목록 조회
 function loadMemberList(){
     $('tbody').empty();
@@ -153,7 +184,18 @@ function loadMemberList(){
 
 
 
-
+// 세션에 저장된 ID로 회원 정보 조회
+function inquiry(){
+    var memberId = $('input[name="memberId"]').val();
+    /*var memberId = '<%=(String)session.getAttribute("memberId")%>';*/
+    alert(memberId);
+    var url = "members/"+memberId;
+    var type = "GET";
+    var redirectUrl = "";
+    var workTitle = "회원정보조회";
+    alert(workTitle + "버튼 클릭");
+    ajaxGetDelete1(url, type, redirectUrl, workTitle);
+}
 
 // 로그인 메서드
 function logIn(){
@@ -184,6 +226,17 @@ function join(){
     var formId = "form1";
     var url = "members";
     var type = "post";
+    alert(workTitle + "버튼 클릭");
+    ajaxPostPut(formId,url,type,redirectUrl,workTitle);
+}
+
+// 회원가입 메서드
+function edit(){
+    var redirectUrl = '/';
+    var workTitle = "회원정보수정";
+    var formId = "form1";
+    var url = "members";
+    var type = "put";
     alert(workTitle + "버튼 클릭");
     ajaxPostPut(formId,url,type,redirectUrl,workTitle);
 }

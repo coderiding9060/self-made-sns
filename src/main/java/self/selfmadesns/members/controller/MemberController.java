@@ -21,5 +21,10 @@ public class MemberController {
         return "members/memberLogInForm";
     }
 
+    @GetMapping(value = "/edit.me")
+    public String edit(){
+        return "members/memberEditForm";
+    }
+
 
 }

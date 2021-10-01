@@ -1,6 +1,5 @@
 package self.selfmadesns.members.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +35,34 @@ public class RestMemberController {
                 System.out.println("insertResult = " + insertResult);
                 result.put("result", Boolean.TRUE);
             }
+        }
+        return result;
+    }
+
+    @PutMapping(value = "/members", headers = {"Content-type=application/json;charset=utf-8"})
+    @ResponseBody
+    public Map<String, Object> edit(@RequestBody(required = false) Member member) {
+        Map result = new HashMap();
+        result.put("result", Boolean.FALSE);
+        if(member!=null){
+            int updateResult = memberService.editMember(member);
+            if(updateResult>0){
+                System.out.println("updateResult = " + updateResult);
+                result.put("result", Boolean.TRUE);
+            }
+        }
+        return result;
+    }
+
+    @GetMapping(value = "/members/{memberId}")
+    @ResponseBody
+    public Map<String, Object> logIn(@PathVariable(name = "memberId") String memberId) {
+        Map result = new HashMap();
+        result.put("result", Boolean.FALSE);
+        Optional<Member> member = memberService.inquiryMemberById(memberId.toString());
+        if(!member.isEmpty()){
+                result.put("member", member);
+                result.put("result", Boolean.TRUE);
         }
         return result;
     }

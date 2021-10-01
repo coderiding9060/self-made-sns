@@ -1,0 +1,98 @@
+.container {
+    background: beige;
+    /*vh는 viewport height으로 화면 전체(html태그 영역)의 높이를 뜻하고 100은 100%를 쓰겠다는 뜻*/
+    height: 100vh;
+    display: flex;
+
+    /*flex 표시 방향 : row는 기본값(수평)*/
+    /*flex-direction: row;*/
+    /*-reverse는 역순(반전)*/
+    /*flex-direction: row-reverse;*/
+    /*flex 표시 방향 : column는 수직*/
+    /*flex-direction: column;*/
+    /*-reverse는 역순(반전)*/
+    /*flex-direction: column-reverse;*/
+
+    /*nowrap이 기본값, 창의 크기가 작아지면 아이템의 사이즈는 줄이되 모양은 변하지 않음*/
+    /*flex-wrap: nowrap;*/
+    /*창의 크기가 작아지면 아이템별 사이즈는 유지하되 창 범위를 벗어나면 아랫줄로 밀려나서 표시됨*/
+    /*flex-wrap: wrap;*/
+    /*wrap의 역순(반전)*/
+    /*flex-wrap: wrap-reverse;*/
+
+    /*flex-direction + flex-wrap = flex-flow 한줄로 설정가능*/
+    flex-flow: column nowrap;
+
+    /*flex-start가 기본값 아이템 배치 : 처음부터(왼쪽->오른쪽, 위쪽->아래쪽) ,중심축에서 배치를 어떻게 할건지 설정*/
+    justify-content: flex-start;
+    /*flex-end는 flext-start의 반대(아이템의 순서는 유지하되 붙는 위치만 반대로 붙음)*/
+    /*justify-content: flex-end;*/
+    /*center는 중간에 붙음*/
+    /*justify-content: center;*/
+    /*space-around : 아이템 별로 공간을 줌, 다만 처음과 끝에는 한쪽만 적용되기때문에 여백차이가 조금 생김*/
+    /*justify-content: space-around;*/
+    /*space-evenly : 아이템 별로 공간을 줌, around랑 다르게 모든 아이템이 똑같이 공간이 적용됨(2칸붙던게 전부 한칸으로)*/
+    /*justify-content: space-evenly;*/
+    /*space-between : 처음과 끝은 화면에 맞게 배치하고 사이에 들어가는 아이템에만 여백을 적용*/
+    /*justify-content: space-between;*/
+
+    /*중심축의 반대축에 적용*/
+    /*center 시 반대축의 중앙에 위치함*/
+    /*align-items: center;*/
+    /*baseline 시 크기가 달라진 객체들의 베이스라인에 해당되는 쪽으로 전부 위치를 통일시켜줌*/
+    /*align-items: baseline;*/
+
+    /*justify-content와 반대*/
+    /*align-content: center;*/
+
+
+
+
+
+}
+
+.item{
+    width: 40px;
+    height : 40px;
+    border: 1px solid black;
+}
+
+.item1{
+    background: #ef9a9a
+}
+
+.item2{
+    background: #f48fb1
+}
+
+.item3{
+    background: #ce93db;
+}
+
+.item4{
+    background: #b39ddb;
+}
+
+.item5{
+    background: #90caf9;
+}
+
+.item6{
+    background: #a5d6a7;
+}
+
+.item7{
+    background: #26ee9c;
+}
+
+.item8{
+    background: #ef9a9a
+}
+
+.item9{
+    background: #ef9a9a
+}
+
+.item10{
+    background: #ef9a9a
+}

@@ -1,0 +1,38 @@
+.container {
+    padding-top: 100px;
+    background: beige;
+    height: 100vh;
+    display: flex;
+
+}
+
+.item{
+    width: 40px;
+    height : 40px;
+    border: 1px solid black;
+}
+
+.item1 {
+    background: #ef9a9a;
+    /*flex-grow는 컨테이너 사이즈가 커져도 아이템의 사이즈를 유지하는 성격을 변화시켜 컨테이너 사이즈가 커지면
+    커진 공간만큼 아이템의 크기도 같이 커짐 숫자는 비율이라고 보면 될것같다.*/
+    /*flex-grow: 1;*/
+
+    /*shrink는 grow와 반대로 얼마나 더 줄어들지의 비율을 설정할 수 있음.*/
+    /*flex-shrink: 1;*/
+
+    /*grow,shrink와 다르게 더 세부적인 사이즈의 설정이 가능함*/
+    /*flex-basis: 20%;*/
+
+    /*컨테이너가아닌 아이템에 개별적으로 적용할때 사용*/
+    /*align-self: center;*/
+}
+
+.item2 {
+    background: #f48fb1;
+
+}
+
+.item3{
+    background: #ce93db;
+}
