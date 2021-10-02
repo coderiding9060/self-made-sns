@@ -40,6 +40,7 @@ public class JdbcMemberRepository implements MemberRepository{
                 member.setName(rs.getString("name"));
                 member.setEmail(rs.getString("email"));
                 member.setGender(rs.getString("gender"));
+                member.setProfileImage(rs.getString("profileImage"));
                 member.setReg_date(rs.getDate("reg_date"));
             } else {
                 return Optional.empty();
@@ -68,6 +69,7 @@ public class JdbcMemberRepository implements MemberRepository{
                 member.setName(rs.getString("name"));
                 member.setEmail(rs.getString("email"));
                 member.setGender(rs.getString("gender"));
+                member.setProfileImage(rs.getString("profileImage"));
                 member.setReg_date(rs.getDate("reg_date"));
             } else {
                 return Optional.empty();
@@ -96,6 +98,7 @@ public class JdbcMemberRepository implements MemberRepository{
                 member.setName(rs.getString("name"));
                 member.setEmail(rs.getString("email"));
                 member.setGender(rs.getString("gender"));
+                member.setProfileImage(rs.getString("profileImage"));
                 member.setReg_date(rs.getDate("reg_date"));
             } else {
                 return Optional.empty();
@@ -125,6 +128,7 @@ public class JdbcMemberRepository implements MemberRepository{
                 member.setName(rs.getString("name"));
                 member.setEmail(rs.getString("email"));
                 member.setGender(rs.getString("gender"));
+                member.setProfileImage(rs.getString("profileImage"));
                 member.setReg_date(rs.getDate("reg_date"));
             } else {
                 return Optional.empty();
@@ -154,6 +158,7 @@ public class JdbcMemberRepository implements MemberRepository{
                 member.setName(rs.getString("name"));
                 member.setEmail(rs.getString("email"));
                 member.setGender(rs.getString("gender"));
+                member.setProfileImage(rs.getString("profileImage"));
                 member.setReg_date(rs.getDate("reg_date"));
                 memberList.add(member);
             }
@@ -167,7 +172,7 @@ public class JdbcMemberRepository implements MemberRepository{
 
     @Override
     public Member insertMember(Member member) {
-        sql = "insert into member(id,pw,name,email,gender,reg_date) values(?,?,?,?,?,sysdate)";
+        sql = "insert into member(id,pw,name,email,gender,profileImage,reg_date) values(?,?,?,?,?,?,sysdate)";
         try {
             conn = getConnection();
             pstmt = conn.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
@@ -176,6 +181,7 @@ public class JdbcMemberRepository implements MemberRepository{
             pstmt.setString(3,member.getName());
             pstmt.setString(4,member.getEmail());
             pstmt.setString(5,member.getGender());
+            pstmt.setString(6,member.getProfileImage());
             pstmt.executeUpdate();
             rs = pstmt.getGeneratedKeys();
             if(rs.next()){
@@ -195,14 +201,15 @@ public class JdbcMemberRepository implements MemberRepository{
 
     @Override
     public int updateMember(Member member) {
-        sql = "update member set pw=?,gender=? where id=?";
+        sql = "update member set pw=?,gender=?,profileImage=? where id=?";
         int updateCount = 0;
         try {
             conn = getConnection();
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1,member.getPw());
             pstmt.setString(2,member.getGender());
-            pstmt.setString(3,member.getId());
+            pstmt.setString(3,member.getProfileImage());
+            pstmt.setString(4,member.getId());
             updateCount = pstmt.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
